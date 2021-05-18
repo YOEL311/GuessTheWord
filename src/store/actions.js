@@ -49,13 +49,9 @@ const hideWord = (fullWord, level) => {
 };
 
 const changeWord = (dispatch, listWords, level) => {
-  let fullWord = '';
-  if (listWords.length < 5) {
-    fullWord = listWords.shift();
-  } else {
-    const elNewWord = Math.floor(Math.random() * 5);
-    fullWord = listWords.splice(elNewWord, 1)[0];
-  }
+  const rangeRandom = listWords.length > 5 ? 5 : listWords.length;
+  const elNewWord = Math.floor(Math.random() * rangeRandom);
+  const fullWord = listWords.splice(elNewWord, 1)[0];
   dispatch(successGetListWords(listWords));
   const hintWord = hideWord(fullWord, level);
   dispatch(successChangeCurrentWord({fullWord, hintWord}));
