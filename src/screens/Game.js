@@ -28,8 +28,7 @@ function Game({navigation}) {
   }, [currentWord]);
 
   const [userWordGuess, setUserWordGuess] = useState([]);
-  const fullWord = currentWord.fullWord;
-  const hintWord = currentWord.hintWord;
+  const {fullWord, hintWord} = currentWord;
 
   useEffect(() => {
     dispatch(changeCurrentWord());
